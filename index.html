@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SumBlock Puzzle</title>
+    <script>
+      // Fix for "Uncaught TypeError: Cannot set property fetch of #<Window> which has only a getter"
+      // This happens when some libraries try to polyfill fetch by assigning to window.fetch
+      // in environments where it is read-only.
+      (function() {
+        const nativeFetch = window.fetch;
+        if (nativeFetch) {
+          Object.defineProperty(window, 'fetch', {
+            enumerable: true,
+            configurable: true,
+            get: () => nativeFetch,
+            set: () => { console.warn('Prevented attempt to overwrite window.fetch'); }
+          });
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

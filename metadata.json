@@ -1,0 +1,5 @@
+{
+  "name": "SumBlock Puzzle",
+  "description": "A strategic number-summing puzzle game. Match numbers to reach the target and clear the board before it reaches the top!",
+  "requestFramePermissions": []
+}
